@@ -1,9 +1,7 @@
 version: '3.8'
 services:
   vprodb:
-    build: 
-      context: ./Docker-files/db
-    image: vprocontainers/vprofiledb
+    image: 134843583260.dkr.ecr.us-east-1.amazonaws.com/dbservice:latest
     container_name: vprodb
     ports:
       - "3306:3306"
@@ -26,24 +24,19 @@ services:
       - RABBITMQ_DEFAULT_PASS=guest
 
   vproapp:
-    build: 
-      context: ./Docker-files/app
-    image: vprocontainers/vprofileapp
+    image: 134843583260.dkr.ecr.us-east-1.amazonaws.com/appservice:latest
     container_name: vproapp
     ports:
       - "8080:8080"
     volumes:
       - vproappdata:/usr/local/tomcat/webapps
-    
+
   vproweb:
-    build: 
-      context: ./Docker-files/web
-    image: vprocontainers/vprofileweb
+    image: 134843583260.dkr.ecr.us-east-1.amazonaws.com/webfrontend:latest
     container_name: vproweb
     ports:
       - "80:80"
 
 volumes:
-   vprodbdata: {}
-   vproappdata: {}
-  
+  vprodbdata: {}
+  vproappdata: {}
