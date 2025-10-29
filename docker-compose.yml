@@ -27,7 +27,7 @@ services:
     image: 134843583260.dkr.ecr.us-east-1.amazonaws.com/appservice:latest
     container_name: vproapp
     ports:
-      - "8080:8080"
+      - "8080:8081"
     volumes:
       - vproappdata:/usr/local/tomcat/webapps
 
